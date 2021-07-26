@@ -11,7 +11,7 @@ const Login = (props) => {
   const [formIsValid, setFormIsValid] = useState("");
 
   useEffect(() => {
-    console.log("Effect Running ");
+    console.log("Effect Running");
 
     return () => {
       console.log("EFFECT CLEAN UP");
