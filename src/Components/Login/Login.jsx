@@ -5,7 +5,7 @@ import classes from "./Login.module.css";
 
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.includes('@') };
+    return { value: action.val, isValid: action.val.includes("@") };
   }
 
   if (action.type === "INPUT_BLUR") {
@@ -16,8 +16,6 @@ const emailReducer = (state, action) => {
 };
 
 const Login = (props) => {
-  // const [enteredEmail, setEnteredEmail] = useState("");
-  // const [emailIsValid, setEmailIsValid] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState("");
   const [formIsValid, setFormIsValid] = useState("");
@@ -28,29 +26,21 @@ const Login = (props) => {
   });
 
   const emailChangeHandler = (event) => {
- 
-
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-   
-    setFormIsValid(
-      event.target.value.includes("@") && enteredPassword.trim().length > 6
-    );
+
+    // setFormIsValid(
+    //   event.target.value.includes("@") && enteredPassword.trim().length > 6
+    // );
   };
 
   const validateEmailHandler = () => {
-   
     dispatchEmail({ type: "INPUT_BLUR" });
- 
   };
 
-   
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
-    setFormIsValid(
-      emailState.isValid && event.target.value.trim().length > 6
-    );
+    setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
   };
-
 
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length > 6);
@@ -58,9 +48,8 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    
+
     props.onLogin(emailState.value, enteredPassword);
-   
   };
   return (
     <Card className={classes.login}>
@@ -95,7 +84,7 @@ const Login = (props) => {
             id="password"
             value={enteredPassword}
             onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
+             onBlur={validatePasswordHandler}
           />
         </div>
 
