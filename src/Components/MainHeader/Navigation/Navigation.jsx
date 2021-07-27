@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from "react";
+import AuthContext from "../../Store/auth-context";
+import Button from "../../UI/Button/Button";
 
-import classes from './Navigation.module.css';
+import classes from "./Navigation.module.css";
 
 const Navigation = (props) => {
+  // const ctx = useContext(AuthContext);
   return (
     <nav className={classes.nav}>
       <ul>

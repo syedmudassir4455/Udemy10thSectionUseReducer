@@ -22,17 +22,21 @@ if(storedUserLoggedInInformation === 21){
     setIsLoggedIn(true)
   }
 
-  const logoutHandler =()=>{
+  
+
+  const logoutHandler  = () => {
     localStorage.removeItem('isLoggedIn')
-    setIsLoggedIn(false)
-  }
+    setIsLoggedIn(false);
+  };
+
+  
   return (
      <React.Fragment >
-
-       <MainHeader isAuthenticated={isLoggedIn} />
+  
+       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
        <main>
        {!isLoggedIn && <Login  onLogin ={loginHandler}/> }
-        { isLoggedIn && <Home  onLogout ={logoutHandler}/> }
+        { isLoggedIn && <Home  onLogout={logoutHandler} /> }
        </main>
      </React.Fragment>
   );
